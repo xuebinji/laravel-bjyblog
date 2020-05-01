@@ -30,10 +30,5 @@ jobs:
         run: |
           ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots --dry-run --diff
       - name: Slack Notify
-        uses: baijunyao/action-slack-notify@v2.2.0
+        uses: baijunyao/action-slack-notify@feature/add-default-value
         if: always()
-        with:
-          channel: CEWJP77BP
-          slack_bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
-          github_context: ${{ toJson(github) }}
-          job_context: ${{ toJson(job) }}
